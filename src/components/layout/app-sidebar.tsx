@@ -39,6 +39,7 @@ import {
   IconCreditCard,
   IconLogout,
   IconPhotoUp,
+  IconTools,
   IconUserCircle
 } from '@tabler/icons-react';
 import { SignOutButton } from '@clerk/nextjs';
@@ -47,6 +48,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
 import { OrgSwitcher } from '../org-switcher';
+import { FeaturePreviewWrapper } from './feature-enabled';
 export const company = {
   name: 'Aionica',
   logo: IconPhotoUp,
@@ -63,9 +65,7 @@ export default function AppSidebar() {
   const { isOpen } = useMediaQuery();
   const { user } = useUser();
   const router = useRouter();
-  const handleSwitchTenant = (_tenantId: string) => {
-    // Tenant switching functionality would be implemented here
-  };
+  const handleSwitchTenant = (_tenantId: string) => {};
 
   const activeTenant = tenants[0];
 
@@ -144,6 +144,20 @@ export default function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>
+          <FeaturePreviewWrapper feature='DEVELOPER_MODE_DEV'>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                // className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+                onClick={() => router.push('/developer-mode')}
+                isActive={pathname === '/developer-mode'}
+                tooltip='Developer Mode'
+              >
+                <IconTools />
+                <span>{'Developer Mode'}</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </FeaturePreviewWrapper>
+
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

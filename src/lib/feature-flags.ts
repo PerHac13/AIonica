@@ -1,5 +1,6 @@
 export type FeatureFlagName = keyof typeof FEATURE_FLAGS;
 
 export const FEATURE_FLAGS = {
-  USER_DEVELOPER_MODE: false
+  USER_DEVELOPER_MODE: false,
+  DEVELOPER_MODE_DEV: true
 } as const;

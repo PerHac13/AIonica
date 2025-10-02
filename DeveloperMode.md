@@ -1,12 +1,9 @@
----
-
-# 📘 Aionic Developer Mode — Model Configuration Documentation
+# Aionic Developer Mode — Model Configuration Documentation
 
 > **Version**: 1.0
 > **Last Updated**: May 17, 2025
 > **Owner**: Shaikh Abdullah (Developer Mode)
 
----
 
 ## 🧠 Overview
 
